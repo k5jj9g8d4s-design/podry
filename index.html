@@ -8,13 +8,12 @@
 
 <title>Для моей подружки 💕</title>
 
-
 <style>
 
 body {
     margin:0;
-    font-family: Arial, sans-serif;
-    background:linear-gradient(135deg,#ffd6ed,#fff4fa);
+    font-family:Arial,sans-serif;
+    background:linear-gradient(135deg,#ffd6ed,#fff5fb);
     text-align:center;
     overflow-x:hidden;
 }
@@ -27,12 +26,12 @@ body {
     position:fixed;
     width:100%;
     height:100%;
-    background:linear-gradient(135deg,#ff9dcc,#ffe6f4);
+    background:linear-gradient(135deg,#ff9dcc,#ffe8f5);
     display:flex;
     flex-direction:column;
     justify-content:center;
     align-items:center;
-    z-index:5;
+    z-index:10;
 
 }
 
@@ -65,17 +64,13 @@ body {
 @keyframes hide {
 
 to {
-
     opacity:0;
     visibility:hidden;
-
 }
 
 }
 
 
-
-/* Основной блок */
 
 .container {
 
@@ -85,32 +80,19 @@ to {
     margin:40px auto;
     padding:25px;
     border-radius:30px;
-    box-shadow:0 10px 30px #f4afd2;
+    box-shadow:0 10px 30px pink;
 
 }
 
 
+
 h1 {
-
     color:#ff4f9a;
-
 }
 
 
 h2 {
-
-    color:#ff72ae;
-
-}
-
-
-
-img {
-
-    width:250px;
-    border-radius:25px;
-    box-shadow:0 5px 20px pink;
-
+    color:#ff72ad;
 }
 
 
@@ -119,7 +101,7 @@ button {
 
     background:#ff72ad;
     color:white;
-    border:none;
+    border:0;
     padding:15px 25px;
     border-radius:30px;
     font-size:16px;
@@ -127,6 +109,7 @@ button {
     cursor:pointer;
 
 }
+
 
 
 .hidden {
@@ -139,7 +122,6 @@ button {
 
 /* Игра */
 
-
 #gameArea {
 
     height:300px;
@@ -149,6 +131,7 @@ button {
     overflow:hidden;
 
 }
+
 
 
 .gameHeart {
@@ -161,7 +144,7 @@ button {
 
 
 
-/* Падающие сердечки */
+/* Сердечки */
 
 .heart {
 
@@ -172,19 +155,15 @@ button {
 }
 
 
+
 @keyframes fall {
 
 from {
-
     transform:translateY(-50px);
-
 }
 
-
 to {
-
     transform:translateY(100vh);
-
 }
 
 }
@@ -195,32 +174,23 @@ to {
 </head>
 
 
-
 <body>
 
 
 
-<!-- Начало -->
-
 <div id="giftScreen">
 
-
 <div class="gift" onclick="openGift()">
-
 🎁
-
 </div>
-
 
 <h2>
 У меня есть кое-что для тебя 💗
 </h2>
 
-
 <p>
 Нажми на подарок ✨
 </p>
-
 
 </div>
 
@@ -235,32 +205,12 @@ to {
 </h1>
 
 
-
-<img src="photo.jpg">
-
-
-
 <h2>
-Ты моя пидружка❤️
+Ты моя лучшая подруга ❤️
 </h2>
 
 
-
-<button onclick="music()">
-🎵 Включить нашу песню
-</button>
-
-
-<audio id="song">
-
-<source src="music.mp3">
-
-</audio>
-
-
-
-
-<button onclick="letter()">
+<button onclick="showLetter()">
 💌 Открыть письмо
 </button>
 
@@ -268,23 +218,22 @@ to {
 
 <div id="letter" class="hidden">
 
-
 <h3>
 Для тебя 💗
 </h3>
 
-
 <p>
 
-Спасибо тебе за все наши разговоры,
-смешные моменты и поддержку.
+Спасибо тебе за наши смешные моменты,
+разговоры и поддержку.
 
-Я очень ценю нашу дружбу.
-Пусть у нас будет ещё много
-счастливых воспоминаний ✨
+Я очень ценю нашу дружбу ❤️
+
+Пусть впереди будет ещё много
+счастливых дней, приключений
+и воспоминаний ✨
 
 </p>
-
 
 </div>
 
@@ -299,11 +248,9 @@ to {
 
 <div id="game" class="hidden">
 
-
 <h3>
 Собери сердечки 💕
 </h3>
-
 
 <p>
 Счёт:
@@ -317,9 +264,7 @@ to {
 </div>
 
 
-
 </div>
-
 
 
 
@@ -337,19 +282,7 @@ document
 
 
 
-
-function music(){
-
-document
-.getElementById("song")
-.play();
-
-}
-
-
-
-
-function letter(){
+function showLetter(){
 
 document
 .getElementById("letter")
@@ -359,13 +292,11 @@ document
 
 
 
-
 function showGame(){
 
 document
 .getElementById("game")
 .style.display="block";
-
 
 createHeart();
 
@@ -379,18 +310,14 @@ let score=0;
 
 function createHeart(){
 
-
 let area=document.getElementById("gameArea");
-
 
 let heart=document.createElement("div");
 
 
 heart.innerHTML="💗";
 
-
 heart.className="gameHeart";
-
 
 
 heart.style.left=Math.random()*250+"px";
@@ -401,30 +328,20 @@ heart.style.top=Math.random()*250+"px";
 
 heart.onclick=function(){
 
-
 score++;
 
-
-document
-.getElementById("score")
-.innerHTML=score;
-
+document.getElementById("score").innerHTML=score;
 
 heart.remove();
 
-
 createHeart();
 
-
 }
-
 
 
 area.appendChild(heart);
 
-
 }
-
 
 
 
@@ -434,18 +351,13 @@ setInterval(()=>{
 
 let h=document.createElement("div");
 
-
 h.className="heart";
-
 
 h.innerHTML="💗";
 
-
 h.style.left=Math.random()*100+"%";
 
-
 h.style.fontSize=Math.random()*30+20+"px";
-
 
 
 document.body.appendChild(h);
@@ -465,7 +377,6 @@ h.remove();
 
 
 </script>
-
 
 
 </body>
